@@ -1,6 +1,7 @@
 const express = require('express');
 const hbs = require('hbs');
-const port = process.env.port || 3000;
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
 
 var app = express();
 
@@ -26,4 +27,7 @@ app.get('/about',(req, res) => {
     });
 });
 
-app.listen(port);
+app.listen(port, host, function() {
+    console.log("Server started......." + "at Port: " + port + " on host: " + host);
+});
+// app.listen(port);
